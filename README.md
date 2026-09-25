@@ -4,9 +4,11 @@ This repo holds a template to be able to run [bonsai](https://prismml.com/news/b
 
 ## Prerequisites
 
-Make sure you have docker, docker-buildx, docker-composer installed, the official nvidia driver and the container toolkit configured for docker.
+Make sure you have docker, docker-buildx, docker-compose installed, the official nvidia driver and the container toolkit configured for docker.
 
 You can follow official nvidia instruction [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+
+Only nVidia GPUs are supported at the moment.
 
 ## Instructions
 
@@ -19,6 +21,8 @@ cd models
 ln -s model.gguf Ternary-Bonsai-2-27B-PQ2_0.gguf
 cd ..
 ```
+
+Use the TQ1_0 version if you have a 12GB GPU.
 
 Then you start the container:
 
