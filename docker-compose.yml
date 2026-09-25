@@ -15,47 +15,47 @@ services:
     cap_add:
       - IPC_LOCK
 
-#  openwebui:
-#    image: ghcr.io/open-webui/open-webui:main
-#    volumes:
-#      - ./openwebui:/app/backend/data
-#    ports:
-#      - "3000:8080"
-#    restart: unless-stopped
-#    depends_on:
-#      - llama
-#
-#  hermes:
-#    stdin_open: true
-#    tty: true
-#    build:
-#      context: ./docker/hermes
-#    image: personallm_hermes:latest
-#    volumes:
-#      - ./hermes:/opt/data
-#    ports:
-#      - "8642:8642"
-#      - "9119:9119"
-#    environment:
-#      HERMES_DASHBOARD: 1
-#      HERMES_DASHBOARD_INSECURE: 1
-#      HERMES_DASHBOARD_HOST: "0.0.0.0"
-#      HERMES_DASHBOARD_PORT: 9119
-#      API_SERVER_ENABLED: 1
-#      API_SERVER_HOST: "0.0.0.0"
-#      API_SERVER_KEY: "hm-key-5e7afd97da613bdded3c9a147b6fe50cc2de1c75c36318d9e7fe5258325c1321"
-#      API_SERVER_CORS_ORIGINS: "*"
-#      OPENAI_BASE_URL: "http://llama:8080/v1"
-#      OPENAI_API_KEY: "fk-api-key"
-#    restart: unless-stopped
-#    depends_on:
-#      - llama
-#    deploy:
-#      resources:
-#        limits:
-#          memory: 4G
-#          cpus: "2.0"
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    volumes:
+      - ./openwebui:/app/backend/data
+    ports:
+      - "3000:8080"
+    restart: unless-stopped
+    depends_on:
+      - llama
 
-#volumes:
-#  models:
-#    driver: local
+  hermes:
+    stdin_open: true
+    tty: true
+    build:
+      context: ./docker/hermes
+    image: personallm_hermes:latest
+    volumes:
+      - ./hermes:/opt/data
+    ports:
+      - "8642:8642"
+      - "9119:9119"
+    environment:
+      HERMES_DASHBOARD: 1
+      HERMES_DASHBOARD_INSECURE: 1
+      HERMES_DASHBOARD_HOST: "0.0.0.0"
+      HERMES_DASHBOARD_PORT: 9119
+      API_SERVER_ENABLED: 1
+      API_SERVER_HOST: "0.0.0.0"
+      API_SERVER_KEY: "hm-key-5e7afd97da613bdded3c9a147b6fe50cc2de1c75c36318d9e7fe5258325c1321"
+      API_SERVER_CORS_ORIGINS: "*"
+      OPENAI_BASE_URL: "http://llama:8080/v1"
+      OPENAI_API_KEY: "fk-api-key"
+    restart: unless-stopped
+    depends_on:
+      - llama
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+          cpus: "2.0"
+
+volumes:
+  models:
+    driver: local
