@@ -10,7 +10,17 @@ You can follow official nvidia instruction [here](https://docs.nvidia.com/datace
 
 ## Instructions
 
-You start the container:
+Download the [bonsai-2](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) image, suggested for 16GB GPUs:
+
+```
+wget https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf/resolve/main/Ternary-Bonsai-2-27B-PQ2_0.gguf?download=true
+mv *.gguf models/Ternary-Bonsai-2-27B-PQ2_0.gguf
+cd models
+ln -s model.gguf Ternary-Bonsai-2-27B-PQ2_0.gguf
+cd ..
+```
+
+Then you start the container:
 
 ```sh
 docker compose up
