@@ -7,6 +7,7 @@ services:
     image: bonsai_llama:latest
     ports:
       - "8080:8080"
+      - "50052:50052"
     environment:
       MODEL_DIR: /models
     runtime: nvidia
@@ -32,7 +33,7 @@ services:
       context: ./docker/hermes
     image: personallm_hermes:latest
     volumes:
-      - ./hermes:/opt/data
+      - hermes_data:/opt/data
     ports:
       - "8642:8642"
       - "9119:9119"
@@ -57,5 +58,6 @@ services:
           cpus: "2.0"
 
 volumes:
+  hermes_data:
   models:
     driver: local

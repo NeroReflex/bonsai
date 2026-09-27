@@ -5,6 +5,8 @@ WORKDIR /workspace
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+ENV VIRTUAL_ENV=/opt/hf
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     ccache \
@@ -22,6 +24,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     libopenblas-dev \
     libomp-dev \
+    python3 \
+    python3-pip \
+    python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
 # Download sources
@@ -34,14 +39,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 #RUN git clone https://gitlab.neroreflex.duckdns.org/NeroReflex/llama.cpp.git
 #RUN cd llama.cpp && git checkout feature/turboquant-kv-cache
 
-RUN git clone https://github.com/PrismML-Eng/llama.cpp
-RUN cd llama.cpp
+RUN git clone https://github.com/NeroReflex/llama.cpp.git
+RUN cd llama.cpp && git checkout feature/turboquant-kv-cache
+
+#RUN git clone https://github.com/PrismML-Eng/llama.cpp
+#RUN cd llama.cpp
 
 WORKDIR /workspace/llama.cpp
 
 # Build with CUDA support - flags may vary by llama.cpp version
 RUN cmake -B build -DGGML_CUDA=ON -DGGML_CUDA_GRAPH=ON \
-        -DGGML_NATIVE=ON -DGGML_CUDA_F16=ON -DGGML_CUDA_FA=ON -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_LTO=ON  -DCMAKE_CUDA_ARCHITECTURES="89" \
+        -DGGML_NATIVE=ON -DGGML_CUDA_F16=ON -DGGML_CUDA_FA=ON -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_LTO=ON -DGGML_RPC=ON \
         -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_IS_DEV=OFF -DLLAMA_BUILD_TESTS=OFF \
         -DCMAKE_BUILD_TYPE=Release
 
@@ -50,12 +58,18 @@ RUN cmake --install build
 
 VOLUME /models
 
+RUN python3 -m venv "$VIRTUAL_ENV" \
+    && python -m pip install --upgrade pip \
+    && python -m pip install --upgrade huggingface_hub
+
 COPY entrypoint.sh /llama.sh
 RUN chmod a+x /llama.sh
 
 CMD [ "/llama.sh" ]
 
 EXPOSE 8080/tcp
+EXPOSE 50052/tcp
+EXPOSE 50052/udp
 
 HEALTHCHECK --interval=5m --timeout=3s \
   CMD curl -f http://localhost:8080/v1/health || exit 1
