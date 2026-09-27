@@ -16,11 +16,16 @@ Head straight to huggingface deciding what model to run and get its name:quant.
 
 I suggest [bonsai-2](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) for 16GB GPUs.
 
+Place in models a file named *model.name* containing the name of the model to run, for example __prism-ml/Ternary-Bonsai-2-27B-gguf:Q2_0__
+
+
 ```sh
 docker compose up
 ```
 
 and when things go well you can press "D" key to detach.
+
+__WARNING__ depending on the model size download might take quite some time.
 
 ## How to
 
