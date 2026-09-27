@@ -1,6 +1,8 @@
 # Bonsai
 
-This repo holds a template to be able to run [bonsai](https://prismml.com/news/bonsai-2-27b).
+This repo holds a template to be able to run [bonsai](https://prismml.com/news/bonsai-2-27b) Q2 at full context window on a 16GB nVidia card!
+
+You can also run whatever other model you like, including the great [Qwen3.8 flash next](https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF) and [GLM 5.3 Flash Next](https://huggingface.co/unsloth/GLM-5.3-Flash-GGUF).
 
 ## Prerequisites
 
@@ -12,7 +14,7 @@ Only nVidia GPUs are supported at the moment.
 
 ## Instructions
 
-Head straight to huggingface deciding what model to run and get its name:quant.
+Head straight to [huggingface](https://huggingface.co/) deciding what model to run and get its name:quant.
 
 I suggest [bonsai-2](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) for 16GB GPUs.
 
