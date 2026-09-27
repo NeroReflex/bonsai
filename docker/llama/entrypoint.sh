@@ -31,7 +31,6 @@ else
 fi
 
 export SERVER_ARGS=(
-    -t 28
     -fa on
     --warmup
     --host 0.0.0.0
