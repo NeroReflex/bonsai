@@ -35,6 +35,20 @@ and when things go well you can press "D" key to detach.
 
 __WARNING__ depending on the model size download might take quite some time.
 
+## Model tweaking
+
+You can tweak model setting by editing the models/model.conf file with llama.cpp parameters, for example I use these for qwen3.8 flash next:
+
+```
+-ctk q8_0 -ctv turbo3
+-nr --cpu-moe --no-host --moe-cache 2300
+--load-mode mmap
+-t 12 -tb 12 -c 131072 -b 32 -ub 32
+--temp 1.0 --top-p 0.95 --chat-template-kwargs '{"reasoning_effort":"xhigh"}'
+```
+
+If you have spare VRAM either increase context size, -b and -ub (keep them equals) or increase the --moe-cache to keep more of the model in GPU VRAM.
+
 ## How to
 
 Intended usage is via [OpenCode](https://opencode.ai/) or other harness for development.
