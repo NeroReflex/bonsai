@@ -18,9 +18,12 @@ Head straight to [huggingface](https://huggingface.co/) deciding what model to r
 
 I suggest [bonsai-2](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) for 16GB GPUs.
 
-Place in models a file named *model.name* containing the name of the model to run, for example __prism-ml/Ternary-Bonsai-2-27B-gguf:Q2_0__
+Place in models a file named __model.name__ containing the name of the model to run, for example *prism-ml/Ternary-Bonsai-2-27B-gguf:Q2_0*
+or *unsloth/Qwen3.8-Flash-Next-GGUF:UD-Q3_K_XL*.
 
-Alternatively you can place in models a file named *model.gguf* with the model to run (or manage it via symlinks).
+Alternatively you can place in models a file named __model.gguf__ with the model to run (or manage it via symlinks).
+
+__NOTE__ if __model.mmproj.gguf__ file is present it will be loaded and vision will be available.
 
 If neither files exists llama.cpp will be run in server mode, so that another llama.cpp instance can use hardware resources.
 
