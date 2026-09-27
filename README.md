@@ -20,6 +20,9 @@ I suggest [bonsai-2](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) 
 
 Place in models a file named *model.name* containing the name of the model to run, for example __prism-ml/Ternary-Bonsai-2-27B-gguf:Q2_0__
 
+Alternatively you can place in models a file named *model.gguf* with the model to run (or manage it via symlinks).
+
+If neither files exists llama.cpp will be run in server mode, so that another llama.cpp instance can use hardware resources.
 
 ```sh
 docker compose up
