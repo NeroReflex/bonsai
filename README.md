@@ -21,10 +21,10 @@ Head straight to [huggingface](https://huggingface.co/) deciding what model to r
 
 I suggest [bonsai-2](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf) for 16GB GPUs.
 
-Place in models a file named __model.name__ containing the name of the model to run, for example *prism-ml/Ternary-Bonsai-2-27B-gguf:Q2_0*
+Place in the models folder a file named __model.name__ containing the name of the model to run, for example *prism-ml/Ternary-Bonsai-2-27B-gguf:Q2_0*
 or *unsloth/Qwen3.8-Flash-Next-GGUF:UD-Q3_K_XL*.
 
-Alternatively you can place in models a file named __model.gguf__ with the model to run (or manage it via symlinks).
+Alternatively you can place in the models folder a file named __model.gguf__ with the model to run (or manage it via symlinks e.g ln -s Ternary-Bonsai-2-27B-gguf model.gguf).
 
 __NOTE__ if __model.mmproj.gguf__ file is present it will be loaded and vision will be available.
 
