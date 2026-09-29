@@ -11,7 +11,10 @@ Make sure you have docker, docker-buildx, docker-compose installed, the official
 You can follow official nvidia instruction [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
 Only nVidia GPUs are supported at the moment.
-
+```
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+```
 ## Instructions
 
 Head straight to [huggingface](https://huggingface.co/) deciding what model to run and get its name:quant.
