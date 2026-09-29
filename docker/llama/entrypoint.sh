@@ -9,7 +9,7 @@ SERVER_ARGS=(
   --host 0.0.0.0
   --port 8080
   --api-key fk-api-key
-  --no-webui
+  --no-ui
   --metrics
 )
 
