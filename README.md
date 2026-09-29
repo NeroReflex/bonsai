@@ -80,6 +80,7 @@ Configure it by editing *.config/opencode/opencode.json*: use something similar 
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
+  "model": "cluster/bonsai-2-27b",
   "compaction": {
     "auto": true,
     "prune": true,
@@ -90,15 +91,42 @@ Configure it by editing *.config/opencode/opencode.json*: use something similar 
       "name": "personallm",
       "npm": "@ai-sdk/openai-compatible",
       "options": {
-        "baseURL": "http://127.0.0.1:8080/v1"
+        "baseURL": "http://127.0.0.1:8080/v1",
+        "apiKey": "fk-api-key"
       },
       "models": {
-        "model": {
-          "limit": {
-            "context": 262144,
-            "output": 32768
+        "qwen38-27b-No-vision": {
+          "name": "Qwen3.8 27B",
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
           },
-          "name": "model"
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          }
+        },
+        "qwen38-27b-Vision": {
+          "name": "Qwen3.8 27B (vision)",
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          }
+        },
+        "bonsai-2-27b": {
+          "name": "Ternary Bonsai 2 27B",
+          "modalities": {
+            "input": ["text"],
+            "output": ["text"]
+          },
+          "limit": {
+            "context": 131072,
+            "output": 32768
+          }
         }
       }
     }
