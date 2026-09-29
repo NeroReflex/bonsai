@@ -58,6 +58,8 @@ RUN cmake --install build
 
 VOLUME /models
 
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+
 RUN python3 -m venv "$VIRTUAL_ENV" \
     && python -m pip install --upgrade pip \
     && python -m pip install --upgrade huggingface_hub
