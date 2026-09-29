@@ -3,7 +3,7 @@ services:
     build:
       context: ./docker/llama
     volumes:
-      - ./models:/models:ro
+      - ./models:/models:ro,z
     image: bonsai_llama:latest
     ports:
       - "8080:8080"
