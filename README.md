@@ -62,7 +62,7 @@ There is an OpenWebUI page at http://127.0.0.1:3000 where you can configure a co
 
 ```
 Base URL: http://server-ip:8080
-Authentication: Bearer Token fk-api-key
+Authentication: fk-api-key
 ```
 
 ## Hermes
