@@ -56,14 +56,12 @@ If you have spare VRAM either increase context size, -b and -ub (keep them equal
 
 Intended usage is via [OpenCode](https://opencode.ai/) or other harness for development.
 
-You also have a chat at http://127.0.0.1:8080, the default API key is fk-api-key (change it).
-
 ## OpenWebUI
 
-There is an OpenWebUI page at http://127.0.0.1:3000 where you can configure an OpenAI-compatible model like this:
+There is an OpenWebUI page at http://127.0.0.1:3000 where you can configure a connection ___OpenAI-compatible___ model like this:
 
 ```
-Base URL: http://llama:8080/v1
+Base URL: http://server-ip:8080
 Authentication: Bearer Token fk-api-key
 ```
 
