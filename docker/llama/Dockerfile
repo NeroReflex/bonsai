@@ -51,7 +51,8 @@ WORKDIR /workspace/llama.cpp
 RUN cmake -B build -DGGML_CUDA=ON -DGGML_CUDA_GRAPH=ON \
         -DGGML_NATIVE=ON -DGGML_CUDA_F16=ON -DGGML_CUDA_FA=ON -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_LTO=ON -DGGML_RPC=ON \
         -DLLAMA_BUILD_EXAMPLES=OFF -DLLAMA_BUILD_IS_DEV=OFF -DLLAMA_BUILD_TESTS=OFF \
-        -DCMAKE_BUILD_TYPE=Release
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_CUDA_ARCHITECTURES="native"
 
 RUN cmake --build build --config Release --parallel 28
 RUN cmake --install build
