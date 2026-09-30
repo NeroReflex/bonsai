@@ -1,4 +1,3 @@
-#FROM nvidia/cuda:13.4.1-cudnn-devel-ubuntu26.04
 FROM nvidia/cuda:13.4.2-devel-ubuntu26.04
 
 RUN mkdir /workspace
@@ -48,6 +47,10 @@ RUN cd llama.cpp && git checkout feature/turboquant-kv-cache
 
 # STOCK llama
 #RUN git clone https://github.com/ggml-org/llama.cpp
+#RUN cd llama.cpp
+
+# turboquant fork
+#RUN git clone https://github.com/TheTom/llama-cpp-turboquant llama.cpp
 #RUN cd llama.cpp
 
 WORKDIR /workspace/llama.cpp
