@@ -15,6 +15,7 @@ services:
     restart: unless-stopped
     cap_add:
       - IPC_LOCK
+    #cpuset: "0-5"
 
   openwebui:
     image: ghcr.io/open-webui/open-webui:main
