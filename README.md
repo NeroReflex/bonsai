@@ -6,7 +6,7 @@ You can also run whatever other model you like, including the great [Qwen3.8 fla
 
 ## Prerequisites
 
-Make sure you have docker, docker-buildx, docker-compose installed, the official nvidia driver and the container toolkit configured for docker.
+Make sure you have docker and docker-compose installed, the official nvidia driver and the container toolkit configured for docker.
 
 You can follow official nvidia instruction [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
 
