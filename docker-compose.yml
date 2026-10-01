@@ -10,7 +10,7 @@ services:
       - "50052:50052"
     environment:
       MODEL_DIR: /models
-    runtime: nvidia
+    #runtime: nvidia
     gpus: all
     restart: unless-stopped
     cap_add:
