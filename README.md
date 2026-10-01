@@ -6,11 +6,11 @@ You can also run whatever other model you like, including the great [Qwen3.8 fla
 
 ## Prerequisites
 
-Make sure you have docker and docker-compose installed, the official nvidia driver and the container toolkit configured for docker.
-
-You can follow official nvidia instruction [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+Make sure you have docker, docker-compose installed and the official nvidia driver.
 
 Only nVidia GPUs are supported at the moment.
+If nvidia-toolkit is needed you can follow official nvidia instruction [here](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html).
+Container toolkit needs to be configured for docker it that case.
 ```
 sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
